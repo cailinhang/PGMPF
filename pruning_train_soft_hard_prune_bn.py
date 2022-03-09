@@ -30,14 +30,9 @@ model_names = sorted(name for name in models.__dict__
 
 parser = argparse.ArgumentParser(description='PyTorch ImageNet Training')
 # Train data
-#parser.add_argument('--train_data', metavar='DIR', default='../../winycg/', help='path to train dataset')
 parser.add_argument('--train_data', metavar='DIR', default='/dev/shm/ImageNet/', help='path to train dataset')
-#parser.add_argument('--train_data', metavar='DIR', default='../../../..//dev/shm/ImageNet/', help='path to train dataset')
-#parser.add_argument('--train_data', metavar='DIR', default='/home/user/winycg/dataset/ImageNet', help='path to train dataset')
 
 # Val data
-#parser.add_argument('--val_data', metavar='DIR', default='/home/user/winycg/dataset/ImageNet', help='path to val dataset')
-#parser.add_argument('--val_data', metavar='DIR', default='../../../../dev/shm/ImageNet/', help='path to val dataset')
 parser.add_argument('--val_data', metavar='DIR', default='/dev/shm/ImageNet/', help='path to val dataset')
 #parser.add_argument('--val_data', metavar='DIR', default='../../../../dev/shm/', help='path to val dataset')
 
@@ -148,19 +143,6 @@ def main(mask_0_decay, manualSeed, manual_lambda_hard, use_resume=False):
     if args.exp_or_poly == "exp":
         is_poly = False
     
-    #log = open(os.path.join(args.save_dir, 'log_seed_{}_exp_sigma_1e-7_sfp_{}.log'.format( args.manualSeed, mask_0_decay)), 'w')
-    #if args.use_pretrain:
-    #    log = open(os.path.join(args.save_dir, 'log_seed_{}_exp_sigma_1e-9_sfp_{}_pretrain.log'.format( args.manualSeed, mask_0_decay)), 'w')
-    
-    #log = open(os.path.join(args.save_path, 'log_seed_{}_{}_lambda_hard_{}_{}_{}_{}_moment_{}_beta_{}.txt'.format(args.manualSeed, mask_0_decay, args.lambda_hard, args.exp_or_poly , soft_to_hard_type, args.regularize, moment_type, beta)), 'w')
-    
-    # Gradient Decay # 去掉了 数据增强 cutout
-    #log = open(os.path.join(args.save_dir, 'log_seed_{}_{}_sigma_1e-9_grad_decay_{}_rand_drop_hard_biased_channelwise_final_lambda_hard_{}_{}_{}_moment_{}_beta_{}_pretrain_start_from_180_lambda_hard_1.txt'.format(args.manualSeed, mask_0_decay, grad_decay_type, args.lambda_hard, args.exp_or_poly , soft_to_hard_type, moment_type, beta)), 'w')
-
-    # log = open(os.path.join(args.save_dir, 'log_seed_{}_{}_sigma_1e-9_grad_decay_{}_rand_drop_hard_biased_channelwise_final_lambda_hard_{}_{}_{}_pretrain_lambda_hard_1.txt'.format(args.manualSeed, mask_0_decay, grad_decay_type, args.lambda_hard, args.exp_or_poly , soft_to_hard_type)), 'w')
-
-    log = open(os.path.join(args.save_dir, 'log_seed_{}_{}_sigma_1e-5_grad_decay_mask_bn_{}_final_lambda_hard_{}_{}_{}_pretrain_lambda_hard_1.txt'.format(args.manualSeed, mask_0_decay, grad_decay_type, args.lambda_hard, args.exp_or_poly , soft_to_hard_type)), 'w')
-
     # soft hard
     log = open(os.path.join(args.save_dir, 'log_seed_{}_{}_sigma_1e-5_soft_hard_mask_bn_{}_final_lambda_hard_{}_{}_{}_pretrain_lambda_hard_1.txt'.format(args.manualSeed, mask_0_decay, gd_or_softhard, args.lambda_hard, args.exp_or_poly , soft_to_hard_type)), 'w')
 
@@ -320,9 +302,6 @@ def main(mask_0_decay, manualSeed, manual_lambda_hard, use_resume=False):
     D = 1 / 8
     asymptotic_k = np.log(4) / (D * args.epochs)
     
-    # comp_rate = 1 - (1 - args.rate) * ( 1 - np.exp(-asymptotic_k*0))
-    #comp_rate = args.rate + (1 - args.rate) * np.exp(-asymptotic_k * 0)
-    #comp_rate = args.rate
 
     print('start_epoch ',args.start_epoch)
     
@@ -358,12 +337,7 @@ def main(mask_0_decay, manualSeed, manual_lambda_hard, use_resume=False):
     if args.start_epoch > (args.epochs) * 4 / 5:
         mask_0_decay = 0
     
-    # mask_0_decay += args.mask_0_decay * np.cos(coeffi*0)
-    # mask_0_decay /=2
-    #mask_0_decay = args.mask_0_decay
-    #slope = -args.mask_0_decay / (30)
-    #slope = -args.mask_0_decay*1 / (args.epochs - 1) #  斜率
-    # alpha0 + slope*t
+    
     m.do_mask(mask_0_decay)
     model = m.model
     #m.if_zero()
@@ -414,14 +388,10 @@ def main(mask_0_decay, manualSeed, manual_lambda_hard, use_resume=False):
                 lambda_hard = args.lambda_hard
 
             m.lambda_hard = lambda_hard
-            #print("lambda_hard : %.3f" % m.lambda_hard)
-            
-            #print_log('lambda_hard : {}'.format(m.lambda_hard), log)
             
 
             mask_0_decay = args.mask_0_decay * np.exp(-alpha_decay * epoch)
-            #mask_0_decay = (args.mask_0_decay + slope * epoch) * ( current_lr/ args.lr ) # linear decay
-            #mask_0_decay = (args.mask_0_decay + slope * epoch) # linear decay
+           
             
             if epoch >= (args.epochs) * 4 / 5:
                 mask_0_decay = 0
@@ -434,35 +404,12 @@ def main(mask_0_decay, manualSeed, manual_lambda_hard, use_resume=False):
             if epoch >= (args.epochs) * 9/10:
                 comp_rate = args.rate
                 
-            # when mask_0_decay is set to zero, comp_rate is args.rate
-            # comp_rate =  args.rate + mask_0_decay * (1-args.rate) # compress_rate from 1  to args.rate
-            #print('mask 0 decay: %.3f' % mask_0_decay)
-            #if epoch >= 30:
-                #mask_0_decay = 0
-            #print('mask 0 decay: %.3f, current_lr / args.lr: %.3f' % (mask_0_decay, current_lr/args.lr))
-            
-            #print('alpha0: %.3f ,  alpha: %.3f' % (args.mask_0_decay, mask_0_decay))
-            
-            # print_log('mask_0_decay : {}'.format(mask_0_decay), log)
-            
-            #comp_rate = args.rate + (1 - args.rate) * np.exp(-asymptotic_k * epoch)
-            #comp_rate = args.rate
-            #if epoch >= (args.epochs) * 3 / 5:# 1e-9 decay faster than 1e-7
-            #    comp_rate = args.rate
 
             print_log('lambda_hard : {}, mask_0_decay : {}, comp rate : {}'.format(m.lambda_hard, mask_0_decay, comp_rate), log)
 
             #print("comp rate: %.3f" % comp_rate)
             m.init_mask(comp_rate, get_hard_codebook)
             
-            #m.if_zero()
-            # m.do_mask(0.0)
-
-            # m.init_mask(comp_rate)
-            # mask_0_decay += args.mask_0_decay* np.cos(coeffi * epoch)
-            # mask_0_decay /=2
-            # mask_0_decay = args.mask_0_decay + slope*epoch # linear decay
-
             m.do_mask(mask_0_decay)
             #m.if_zero()
             model = m.model
