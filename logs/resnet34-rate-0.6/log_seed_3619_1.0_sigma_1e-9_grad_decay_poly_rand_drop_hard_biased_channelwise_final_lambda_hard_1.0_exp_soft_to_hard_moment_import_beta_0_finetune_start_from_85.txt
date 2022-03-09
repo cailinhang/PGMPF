@@ -1,0 +1,102 @@
+save dir : ./logs/resnet34-rate-0.6
+PyThon  version : 3.7.3 (default, Mar 27 2019, 22:11:17)  [GCC 7.3.0]
+PyTorch version : 1.7.1+cu110
+cuDNN   version : 8005
+Vision  version : 0.8.2+cu110
+=> creating model 'resnet34'
+=> parameter : Namespace(arch='resnet34', batch_size=512, beta=0, epoch_prune=1, epochs=100, evaluate=False, exp_or_poly='exp', lambda_hard=1.0, layer_begin=0, layer_end=105, layer_inter=3, lr=0.02, lr_adjust=30, manualSeed=3619, mask_0_decay=1.0, momentum=0.9, ngpu=2, prefix='2021-07-10-4320', print_freq=5200, rate=0.6, resume='', save_dir='./logs/resnet34-rate-0.6', skip_downsample=1, sparse='/data/yahe/imagenet/resnet50-rate-0.7/checkpoint.resnet50.2018-01-07-9744.pth.tar', start_epoch=0, train_data='../../../..//dev/shm/ImageNet/', use_cuda=True, use_pretrain=True, use_sparse=False, val_data='../../../../dev/shm/ImageNet/', weight_decay=0.0001, workers=16)
+Compress Rate: 0.6
+Mask_0_decay: 1.0
+Layer Begin: 0
+Layer End: 105
+Layer Inter: 3
+Epoch prune: 1
+Skip downsample : 1
+Workers         : 16
+Learning-Rate   : 0.02
+Use Pre-Trained : True
+lr adjust : 30
+lambda_hard : 1.0
+exp_or_poly : exp
+beta : 0
+moment_type : import
+grad_decay_type : poly
+=> loading checkpoint 'logs/resnet34-rate-0.6/checkpoint.resnet34.2021-07-08-1115.pth.tar'
+=> loaded checkpoint 'logs/resnet34-rate-0.6/checkpoint.resnet34.2021-07-08-1115.pth.tar' (epoch 85)
+ **Test** Prec@1 70.206 Prec@5 89.742 Error@1 29.794
+ **Test** Prec@1 70.206 Prec@5 89.742 Error@1 29.794
+ [resnet34] ::  85/100 ----- cur_lr=0.00020, [[2021-07-10 02:38:42]] [Need: 00:00:00]
+Epoch: [85][0/2503]	Time 10.172 (10.172)	Data 8.156 (8.156)	Loss 1.1187 (1.1187)	Prec@1 73.242 (73.242)	Prec@5 90.430 (90.430)
+ **Train** Prec@1 70.960 Prec@5 88.492 Error@1 29.040
+ **Test** Prec@1 71.496 Prec@5 90.402 Error@1 28.504
+ **Test** Prec@1 71.094 Prec@5 90.266 Error@1 28.906
+ [resnet34] ::  86/100 ----- cur_lr=0.00020, [[2021-07-10 03:10:38]] [Need: 07:27:05]
+Epoch: [86][0/2503]	Time 8.844 (8.844)	Data 7.633 (7.633)	Loss 1.1421 (1.1421)	Prec@1 71.094 (71.094)	Prec@5 91.797 (91.797)
+ **Train** Prec@1 71.105 Prec@5 88.566 Error@1 28.895
+ **Test** Prec@1 71.490 Prec@5 90.416 Error@1 28.510
+ **Test** Prec@1 71.490 Prec@5 90.416 Error@1 28.510
+ [resnet34] ::  87/100 ----- cur_lr=0.00020, [[2021-07-10 03:42:19]] [Need: 06:51:52]
+Epoch: [87][0/2503]	Time 7.890 (7.890)	Data 6.535 (6.535)	Loss 1.1289 (1.1289)	Prec@1 72.266 (72.266)	Prec@5 91.016 (91.016)
+ **Train** Prec@1 71.101 Prec@5 88.588 Error@1 28.899
+ **Test** Prec@1 71.516 Prec@5 90.390 Error@1 28.484
+ **Test** Prec@1 71.516 Prec@5 90.390 Error@1 28.484
+ [resnet34] ::  88/100 ----- cur_lr=0.00020, [[2021-07-10 04:14:19]] [Need: 06:23:55]
+Epoch: [88][0/2503]	Time 9.885 (9.885)	Data 8.971 (8.971)	Loss 1.1866 (1.1866)	Prec@1 73.047 (73.047)	Prec@5 89.258 (89.258)
+ **Train** Prec@1 71.087 Prec@5 88.587 Error@1 28.913
+ **Test** Prec@1 71.572 Prec@5 90.444 Error@1 28.428
+ **Test** Prec@1 71.572 Prec@5 90.444 Error@1 28.428
+ [resnet34] ::  89/100 ----- cur_lr=0.00020, [[2021-07-10 04:45:58]] [Need: 05:48:11]
+Epoch: [89][0/2503]	Time 8.591 (8.591)	Data 7.316 (7.316)	Loss 1.2044 (1.2044)	Prec@1 73.438 (73.438)	Prec@5 86.914 (86.914)
+ **Train** Prec@1 71.103 Prec@5 88.589 Error@1 28.897
+ **Test** Prec@1 71.496 Prec@5 90.408 Error@1 28.504
+ **Test** Prec@1 71.496 Prec@5 90.408 Error@1 28.504
+ [resnet34] ::  90/100 ----- cur_lr=0.00002, [[2021-07-10 05:17:47]] [Need: 05:18:08]
+Epoch: [90][0/2503]	Time 9.128 (9.128)	Data 7.922 (7.922)	Loss 1.2196 (1.2196)	Prec@1 69.727 (69.727)	Prec@5 88.672 (88.672)
+ **Train** Prec@1 71.165 Prec@5 88.648 Error@1 28.835
+ **Test** Prec@1 71.558 Prec@5 90.462 Error@1 28.442
+ **Test** Prec@1 71.558 Prec@5 90.462 Error@1 28.442
+ [resnet34] ::  91/100 ----- cur_lr=0.00002, [[2021-07-10 05:49:27]] [Need: 04:45:00]
+Epoch: [91][0/2503]	Time 9.617 (9.617)	Data 8.684 (8.684)	Loss 1.2645 (1.2645)	Prec@1 70.898 (70.898)	Prec@5 86.523 (86.523)
+ **Train** Prec@1 71.237 Prec@5 88.627 Error@1 28.763
+ **Test** Prec@1 71.536 Prec@5 90.480 Error@1 28.464
+ **Test** Prec@1 71.536 Prec@5 90.480 Error@1 28.464
+ [resnet34] ::  92/100 ----- cur_lr=0.00002, [[2021-07-10 06:21:09]] [Need: 04:13:32]
+Epoch: [92][0/2503]	Time 8.821 (8.821)	Data 7.860 (7.860)	Loss 1.2578 (1.2578)	Prec@1 71.094 (71.094)	Prec@5 88.281 (88.281)
+ **Train** Prec@1 71.260 Prec@5 88.633 Error@1 28.740
+ **Test** Prec@1 71.502 Prec@5 90.410 Error@1 28.498
+ **Test** Prec@1 71.502 Prec@5 90.410 Error@1 28.498
+ [resnet34] ::  93/100 ----- cur_lr=0.00002, [[2021-07-10 06:52:44]] [Need: 03:41:07]
+Epoch: [93][0/2503]	Time 8.173 (8.173)	Data 6.867 (6.867)	Loss 1.1850 (1.1850)	Prec@1 70.703 (70.703)	Prec@5 88.867 (88.867)
+ **Train** Prec@1 71.190 Prec@5 88.638 Error@1 28.810
+ **Test** Prec@1 71.516 Prec@5 90.416 Error@1 28.484
+ **Test** Prec@1 71.516 Prec@5 90.416 Error@1 28.484
+ [resnet34] ::  94/100 ----- cur_lr=0.00002, [[2021-07-10 07:24:23]] [Need: 03:09:54]
+Epoch: [94][0/2503]	Time 8.344 (8.344)	Data 7.000 (7.000)	Loss 1.2452 (1.2452)	Prec@1 68.945 (68.945)	Prec@5 88.672 (88.672)
+ **Train** Prec@1 71.157 Prec@5 88.601 Error@1 28.843
+ **Test** Prec@1 71.474 Prec@5 90.476 Error@1 28.526
+ **Test** Prec@1 71.474 Prec@5 90.476 Error@1 28.526
+ [resnet34] ::  95/100 ----- cur_lr=0.00002, [[2021-07-10 07:56:02]] [Need: 02:38:12]
+Epoch: [95][0/2503]	Time 9.004 (9.004)	Data 7.774 (7.774)	Loss 1.1869 (1.1869)	Prec@1 71.680 (71.680)	Prec@5 89.844 (89.844)
+ **Train** Prec@1 71.228 Prec@5 88.662 Error@1 28.772
+ **Test** Prec@1 71.472 Prec@5 90.452 Error@1 28.528
+ **Test** Prec@1 71.472 Prec@5 90.452 Error@1 28.528
+ [resnet34] ::  96/100 ----- cur_lr=0.00002, [[2021-07-10 08:27:20]] [Need: 02:05:11]
+Epoch: [96][0/2503]	Time 9.836 (9.836)	Data 8.869 (8.869)	Loss 1.1716 (1.1716)	Prec@1 73.633 (73.633)	Prec@5 89.258 (89.258)
+ **Train** Prec@1 71.291 Prec@5 88.661 Error@1 28.709
+ **Test** Prec@1 71.592 Prec@5 90.446 Error@1 28.408
+ **Test** Prec@1 71.592 Prec@5 90.446 Error@1 28.408
+ [resnet34] ::  97/100 ----- cur_lr=0.00002, [[2021-07-10 08:58:26]] [Need: 01:33:20]
+Epoch: [97][0/2503]	Time 9.087 (9.087)	Data 7.627 (7.627)	Loss 1.3517 (1.3517)	Prec@1 67.188 (67.188)	Prec@5 87.500 (87.500)
+ **Train** Prec@1 71.182 Prec@5 88.605 Error@1 28.818
+ **Test** Prec@1 71.524 Prec@5 90.472 Error@1 28.476
+ **Test** Prec@1 71.524 Prec@5 90.472 Error@1 28.476
+ [resnet34] ::  98/100 ----- cur_lr=0.00002, [[2021-07-10 09:29:41]] [Need: 01:02:29]
+Epoch: [98][0/2503]	Time 8.136 (8.136)	Data 6.709 (6.709)	Loss 1.2534 (1.2534)	Prec@1 70.508 (70.508)	Prec@5 87.305 (87.305)
+ **Train** Prec@1 71.244 Prec@5 88.665 Error@1 28.756
+ **Test** Prec@1 71.572 Prec@5 90.450 Error@1 28.428
+ **Test** Prec@1 71.572 Prec@5 90.450 Error@1 28.428
+ [resnet34] ::  99/100 ----- cur_lr=0.00002, [[2021-07-10 10:01:06]] [Need: 00:31:24]
+Epoch: [99][0/2503]	Time 8.423 (8.423)	Data 7.070 (7.070)	Loss 1.2520 (1.2520)	Prec@1 71.094 (71.094)	Prec@5 86.328 (86.328)
+ **Train** Prec@1 71.265 Prec@5 88.664 Error@1 28.735
+ **Test** Prec@1 71.506 Prec@5 90.448 Error@1 28.494
+ **Test** Prec@1 71.506 Prec@5 90.448 Error@1 28.494

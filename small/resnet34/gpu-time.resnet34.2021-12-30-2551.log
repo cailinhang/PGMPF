@@ -1,0 +1,10 @@
+=> creating model 'resnet34'
+=> parameter : Namespace(arch='resnet34', batch_size=128, data='/home/user/winycg/dataset/ImageNet', epoch_prune=1, get_small=True, layer_begin=3, layer_end=3, layer_inter=1, lr=0.1, prefix='2021-12-30-2551', print_freq=5, rate=0.9, resume='/home/user/clh/momentum_pruning/logs/resnet34-rate-0.6//checkpoint.resnet34.2021-12-25-6993.pth.tar', save_dir='./small/resnet34/', skip_downsample=1, use_cuda=True, workers=12)
+Compress Rate: 0.9
+Layer Begin: 3
+Layer End: 3
+Layer Inter: 1
+Epoch prune: 1
+Skip downsample : 1
+=> loading checkpoint '/home/user/clh/momentum_pruning/logs/resnet34-rate-0.6//checkpoint.resnet34.2021-12-25-6993.pth.tar'
+=> loaded checkpoint '/home/user/clh/momentum_pruning/logs/resnet34-rate-0.6//checkpoint.resnet34.2021-12-25-6993.pth.tar' (epoch 100)
