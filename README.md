@@ -10,19 +10,29 @@ This repository is the PyTorch implementation of [Prior Gradient Mask Guided Pru
 
 Prune pre-trained resnet34 model. `batchsize=768 = 3 * 256` split among `3` GPUs.
 
-`python pruning_train_gd_prune_bn.py  -a resnet34  --save_dir ./logs/resnet34-rate-0.6 --rate 0.6 --layer_begin 0 --layer_end 105 --layer_inter 3   --use_pretrain --lr 0.02 --epochs 100 --cos 0 -b 768`
+```
+python pruning_train_gd_prune_bn.py  -a resnet34  \
+    --save_dir ./logs/resnet34-rate-0.6 --rate 0.6 --layer_begin 0 --layer_end 105 --layer_inter 3  \
+    --use_pretrain --lr 0.02 --epochs 100 --cos 0 -b 768
+```
 
 
 Prune pre-trained resnet50 model. `batchsize=192 = 3 * 64` split among `3` GPUs.
 
-`python pruning_train_gd_prune_bn.py  -a resnet50  --save_dir ./logs/resnet50-rate-0.6 --rate 0.6 --layer_begin 0 --layer_end 156 --layer_inter 3   --use_pretrain --lr 0.01 --epochs 200 --cos 0 -b 192`
+```
+python pruning_train_gd_prune_bn.py  -a resnet50  \
+    --save_dir ./logs/resnet50-rate-0.6 --rate 0.6 --layer_begin 0 --layer_end 156 --layer_inter 3  \
+    --use_pretrain --lr 0.01 --epochs 200 --cos 0 -b 192
+```
 
 
 ## How to convert the pruned model into small ones
 
 In accordance with the implementation of [Soft Filter Pruning](https://github.com/he-y/soft-filter-pruning), 
 
-`sh scripts/get_small.sh`
+```
+sh scripts/get_small.sh
+```
 
 can be used to convert the pruned model of res-18/34/50 into small ones. 
 
