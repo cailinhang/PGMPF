@@ -34,7 +34,7 @@ In accordance with the implementation of [Soft Filter Pruning](https://github.co
 sh scripts/get_small.sh
 ```
 
-can be used to convert the pruned model of res-18/34/50 into small ones. 
+can be used to convert the pruned model of resnet-18/34/50 into small ones. 
 
 The convertion of each model requires case-by-case processing of the Batch Normalization Layers and Downsampling layers.
 
