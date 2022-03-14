@@ -13,10 +13,10 @@ Prune pre-trained resnet34 model.
 Arguments
 
 
-- `lr` - The learning lr is set to be linearly scaled with batchsize.  
+- `lr` - The learning lr is set to be 0.1 by default, linearly scaled with batchsize.  
 - `rate` - the compression rate per layer, equivelant to `1 - pruning rate`.
 - `b` - batch size,  `batchsize=768 = 3 * 256` split among `3` GPUs. 
-- `cos` - use cosine annealing learning rate strategy or not. We do not use it in the paper. 'cos=0'.
+- `cos` - use cosine annealing learning rate strategy or not. We do not use it in the paper. `cos=0`.
 
 
 ```
