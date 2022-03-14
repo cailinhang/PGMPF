@@ -8,7 +8,16 @@ This repository is the PyTorch implementation of [Prior Gradient Mask Guided Pru
 
 ## ImageNet Experiments
 
-Prune pre-trained resnet34 model. `batchsize=768 = 3 * 256` split among `3` GPUs.
+Prune pre-trained resnet34 model.
+
+Arguments
+
+
+- `lr` - The learning lr is set to be linearly scaled with batchsize.  
+- `rate` - the compression rate per layer, equivelant to `1 - pruning rate`.
+- `b` - batch size,  `batchsize=768 = 3 * 256` split among `3` GPUs. 
+- `cos` - use cosine annealing learning rate strategy or not. We do not use it in the paper. 'cos=0'.
+
 
 ```
 python pruning_train_gd_prune_bn.py  -a resnet34  \
@@ -22,7 +31,7 @@ Prune pre-trained resnet50 model. `batchsize=192 = 3 * 64` split among `3` GPUs.
 ```
 python pruning_train_gd_prune_bn.py  -a resnet50  \
     --save_dir ./logs/resnet50-rate-0.6 --rate 0.6 --layer_begin 0 --layer_end 156 --layer_inter 3  \
-    --use_pretrain --lr 0.01 --epochs 200 --cos 0 -b 192
+    --use_pretrain --lr 0.01 --epochs 100 --cos 0 -b 192
 ```
 
 
